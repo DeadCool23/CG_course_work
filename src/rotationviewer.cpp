@@ -6,13 +6,24 @@
 
 RotationViewer::RotationViewer(const QVector<QPointF> &curve, double rotationAxisX, QWidget *parent)
     : QWidget(parent) {
-    QElapsedTimer timer;
-    timer.start();
+
+    // Замер времени для разного количества сегментов
+    // int mes_cnt = 20;
+    // for (int i = 50; i <= 1000; i += 50) {
+    //     qint64 sum = 0;
+    //     for (int j = 0; j < mes_cnt; ++j) {
+    //         QElapsedTimer timer;
+    //         timer.start();
+
+    //         model = PolygonModel::generateFromCurve(curve, rotationAxisX, i);
+
+    //         qint64 elapsedTime = timer.nsecsElapsed();
+    //         sum += elapsedTime;
+    //     }
+    //     qDebug() << i << "|" << sum / mes_cnt;
+    // }
 
     model = PolygonModel::generateFromCurve(curve, rotationAxisX, segments);
-
-    qint64 elapsedTime = timer.elapsed();
-    qDebug() << "Model generation time:" << elapsedTime << "ms";
 
     liWin = new LightInputWindow(&light, &model, this);
 
@@ -96,16 +107,16 @@ void RotationViewer::keyPressEvent(QKeyEvent *event) {
     QColor selectedColor;
     switch (event->key()) {
     case Qt::Key_A:
-        camera.adjustAngleOxz(-1);
+        camera.adjustAngleOxz(-5);
         break;
     case Qt::Key_D:
-        camera.adjustAngleOxz(1);
+        camera.adjustAngleOxz(5);
         break;
     case Qt::Key_W:
-        camera.adjustAngleOzy(-1);
+        camera.adjustAngleOzy(-5);
         break;
     case Qt::Key_S:
-        camera.adjustAngleOzy(1);
+        camera.adjustAngleOzy(5);
         break;
     case Qt::Key_Q:
         camera.adjustRadius(-100);

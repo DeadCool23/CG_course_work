@@ -10,7 +10,9 @@ class BezierCurve : public QWidget {
     Q_OBJECT
 
 public:
+    int steps = 100;
     std::vector<QPoint> mainPoints;
+    std::vector<QPoint> controlPoints;
 
     explicit BezierCurve(QWidget *parent = nullptr);
     QVector<QPointF> calculateBezierCurve();
@@ -23,9 +25,6 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    const int steps = 100;
-    std::vector<QPoint> controlPoints;
-
     QPointF deCasteljau(double t);
 };
 

@@ -7,6 +7,9 @@
 #include <QMenuBar>
 
 #include <QHBoxLayout>
+#include <QElapsedTimer>
+
+#include "polygonmodel.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     bezierCanvas = new BezierCurve(this);
@@ -22,6 +25,26 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
             QMessageBox::warning(this, "Ошибка", "Кривая еще не задана.");
             return;
         }
+
+        // Замер времени для разного количества точек кривой
+        // int mes_cnt = 20;
+        // double mid_x = bezierCanvas->width() / 2;
+        // for (int i = 50; i <= 1000; i += 50) {
+        //     qint64 sum = 0;
+        //     bezierCanvas->steps = i;
+        //     QVector<QPointF> curve = bezierCanvas->calculateBezierCurve();
+        //     for (int j = 0; j < mes_cnt; ++j) {
+        //         QElapsedTimer timer;
+        //         timer.start();
+
+        //         auto model = PolygonModel::generateFromCurve(curve, mid_x, 100);
+
+        //         qint64 elapsedTime = timer.nsecsElapsed();
+        //         sum += elapsedTime;
+        //     }
+        //     qDebug() << i << "|" << sum / mes_cnt;
+        // }
+
         QVector<QPointF> curve = bezierCanvas->calculateBezierCurve();
 
         auto *viewerWindow = new ViewerWindow(curve, bezierCanvas->width() / 2);

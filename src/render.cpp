@@ -45,7 +45,6 @@ QColor Render::computePhongShading(const QVector3D &normal,
 QVector<QVector<QColor>> Render::renderPolygonalModel(const PolygonModel &model, const Light &light) {
     resetBuffers();
 
-    qDebug() << light.position;
     auto projectedVertices = projectTo2D(model.vertices);
 
     for (int i = 0; i < model.triangles.size(); ++i) {
