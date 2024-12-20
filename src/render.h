@@ -18,6 +18,7 @@ public:
 
 private:
     int h, w;
+    QColor bg_color;
     QVector<QVector<double>> zBuffer;
     QVector<QVector<QColor>> imageBuffer;
 

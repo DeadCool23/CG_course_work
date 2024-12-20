@@ -11,7 +11,7 @@ class LightInputWindow : public QWidget {
 public:
     LightInputWindow(Light *l, PolygonModel *model, QWidget *viewer);
 private:
-    float realDistToObj = 10000.;
+    float realDistToObj = 1000.;
     class CustomDialog : public QDialog {
     public:
         CustomDialog(QWidget *parent = nullptr);

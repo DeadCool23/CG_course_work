@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-Render::Render(int h, int w, QColor bg_color) : h(h), w(w) {
+Render::Render(int h, int w, QColor bg_color) : h(h), w(w), bg_color(bg_color) {
     zBuffer.resize(h, QVector<double>(w, std::numeric_limits<double>::infinity()));
     imageBuffer.resize(h, QVector<QColor>(w, bg_color));
 }
@@ -167,6 +167,6 @@ void Render::resetBuffers() {
         std::fill(row.begin(), row.end(), std::numeric_limits<double>::infinity());
     }
     for (auto &row : imageBuffer) {
-        std::fill(row.begin(), row.end(), Qt::black);
+        std::fill(row.begin(), row.end(), bg_color);
     }
 }

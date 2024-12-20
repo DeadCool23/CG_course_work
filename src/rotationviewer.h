@@ -38,6 +38,7 @@ private:
 
     int segments = 64;
     Render render;
+    QColor bg_color = QColor::fromRgb(20, 20, 20);
 };
 
 #endif // ROTATIONVIEWER_H

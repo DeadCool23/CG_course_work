@@ -39,7 +39,7 @@ void RotationViewer::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
 
-    render = Render(height(), width(), Qt::black);
+    render = Render(height(), width(), bg_color);
 
     Light transformedLight = light;
     transformedLight.position = transformToCameraSpace(light.position);
