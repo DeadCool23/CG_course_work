@@ -6,8 +6,8 @@
 
 ## Документация
 
-[Расчетно-поянительная записка](./docs/rpz/report.pdf)
-[Презентация](./docs/presentation/presentation.pdf)
+- [Расчетно-поянительная записка](./docs/rpz/report.pdf)
+- [Презентация](./docs/presentation/presentation.pdf)
 
 ## Техническое задание
 
